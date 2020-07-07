@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 
 class OnBoarding extends StatefulWidget {
@@ -37,9 +38,26 @@ class _OnBoardingState extends State<OnBoarding> {
                      ],
                      );
             },
-             
+
             
             ),
+           Align(
+             alignment:Alignment.bottomCenter,
+             child: Padding(
+               padding: const EdgeInsets.only(bottom:24),
+               child: RaisedButton(
+                 onPressed: (){},
+                 color: Colors.red.shade800,
+                 child: Text(
+                   "GET STARTED",
+                   style: TextStyle(
+                     color: Colors.white
+
+                   ),
+                 ),
+               ),
+             ),
+           ),
         ],
       ),
     );
