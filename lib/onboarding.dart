@@ -13,19 +13,17 @@ class _OnBoardingState extends State<OnBoarding> {
       body: Stack(
         children: <Widget>[
           PageView.builder(
+            itemCount: 4,
             itemBuilder: (context , index){
                    return Stack(
                      children: <Widget>[
                            Container(
-                            decoration: BoxDecoration(
-                              image : DecorationImage(
-                                image: ExactAssetImage('assets/images/pg.png'),
-                                fit: BoxFit.cover,
-
-
-                              ),
-                              
-                              ), 
+                           decoration:BoxDecoration(
+                             image: DecorationImage(
+                               image: ExactAssetImage('assets/images/home.jpeg'),
+                               fit: BoxFit.cover
+                             )
+                           )
                            ),
                            Column(
                              crossAxisAlignment: CrossAxisAlignment.center,  // 
@@ -39,7 +37,7 @@ class _OnBoardingState extends State<OnBoarding> {
                      ],
                      );
             },
-               itemCount: 4,
+             
             
             ),
         ],
