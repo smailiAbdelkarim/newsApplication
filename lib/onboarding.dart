@@ -30,7 +30,13 @@ class _OnBoardingState extends State<OnBoarding> {
                              crossAxisAlignment: CrossAxisAlignment.center,  // 
                              mainAxisAlignment: MainAxisAlignment.center, // relation with content
                              children: <Widget>[
-                             Icon(Icons.ac_unit,size: 100,color: Colors.white,),
+                             Transform.translate(
+                               child: Icon(Icons.ac_unit,
+                                 size: 100,
+                                 color: Colors.white,
+                               ),
+                               offset: Offset(0,-100),
+                             ),
                              Text("Welcome !",
 
                                  style:TextStyle(
