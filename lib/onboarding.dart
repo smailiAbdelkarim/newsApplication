@@ -9,10 +9,10 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   List<String> images = [
-         'assets/images/home.jpeg',
-         'assets/images/bg2.jpeg'
-        ' assets/images/bg3.jpeg'
-             'assets/images/bg4.jpeg'
+         'assets/images/bg3.jpeg',
+         'assets/images/bg2.jpeg',
+         'assets/images/bg3.jpeg',
+         'assets/images/bg4.jpeg',
   ];
 
   @override
@@ -28,7 +28,8 @@ class _OnBoardingState extends State<OnBoarding> {
                            Container(
                            decoration:BoxDecoration(
                              image: DecorationImage(
-                               image: ExactAssetImage('assets/images/home.jpeg'),
+                               image: ExactAssetImage(
+                                   images[index]),
                                fit: BoxFit.cover
                              )
                            )
