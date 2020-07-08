@@ -11,8 +11,14 @@ class _OnBoardingState extends State<OnBoarding> {
   List<String> images = [
          'assets/images/bg3.jpeg',
          'assets/images/bg2.jpeg',
-         'assets/images/bg3.jpeg',
+         'assets/images/home.jpeg',
          'assets/images/bg4.jpeg',
+  ];
+  List<IconData> icons = [
+    Icons.ac_unit,
+    Icons.next_week,
+    Icons.access_time,
+    Icons.brightness_4
   ];
 
   @override
@@ -25,21 +31,28 @@ class _OnBoardingState extends State<OnBoarding> {
             itemBuilder: (context , index){
                    return Stack(
                      children: <Widget>[
-                           Container(
-                           decoration:BoxDecoration(
-                             image: DecorationImage(
-                               image: ExactAssetImage(
-                                   images[index]),
-                               fit: BoxFit.cover
-                             )
-                           )
-                           ),
+
+
+                              Container(
+                             decoration:BoxDecoration(
+                               image: DecorationImage(
+                                 image: ExactAssetImage(
+                                     images[index]),
+                                 fit: BoxFit.cover,
+
+                               ),
+                             ),
+
+                             ),
+                             //opacity:5,
+
                            Column(
                              crossAxisAlignment: CrossAxisAlignment.center,  // 
                              mainAxisAlignment: MainAxisAlignment.center, // relation with content
                              children: <Widget>[
                              Transform.translate(
-                               child: Icon(Icons.ac_unit,
+                               child: Icon(
+                                 icons[index],
                                  size: 100,
                                  color: Colors.white,
                                ),
