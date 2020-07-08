@@ -8,13 +8,20 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
+  List<String> images = [
+         'assets/images/home.jpeg',
+         'assets/images/bg2.jpeg'
+        ' assets/images/bg3.jpeg'
+             'assets/images/bg4.jpeg'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
           PageView.builder(
-            itemCount: 4,
+            itemCount: images.length,
             itemBuilder: (context , index){
                    return Stack(
                      children: <Widget>[
