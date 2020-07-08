@@ -47,7 +47,7 @@ class _OnBoardingState extends State<OnBoarding> {
                              textAlign: TextAlign.center,
                              ),
                              Padding(
-                               padding: const EdgeInsets.only(left: 48,right: 48),
+                               padding: const EdgeInsets.only(left: 48,right: 48,top:18),
                                child: Text("Making friends is easy as waving your hand back and forth in easy step",
                                style: TextStyle(
                                    color: Colors.white,
@@ -67,15 +67,21 @@ class _OnBoardingState extends State<OnBoarding> {
            Align(
              alignment:Alignment.bottomCenter,
              child: Padding(
-               padding: const EdgeInsets.only(bottom:24),
-               child: RaisedButton(
-                 onPressed: (){},
-                 color: Colors.red.shade800,
-                 child: Text(
-                   "GET STARTED",
-                   style: TextStyle(
-                     color: Colors.white
+               padding: const EdgeInsets.only(bottom:24,right:5,left: 5),
+               child: SizedBox(
+                 width: double.infinity,
+                 height: 50,
+                 child: RaisedButton(
+                   onPressed: (){},
+                   color: Colors.red,
+                   child: Text(
+                     "GET STARTED",
+                     style: TextStyle(
+                       color: Colors.white,
+                       letterSpacing: 1,
+                       fontSize: 16
 
+                     ),
                    ),
                  ),
                ),
