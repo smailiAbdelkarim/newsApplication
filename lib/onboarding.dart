@@ -96,14 +96,7 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
                  alignment: Alignment.center,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      _drawCircle(Colors.red),
-                      _drawCircle(Colors.grey),
-                      _drawCircle(Colors.grey),
-                      _drawCircle(Colors.grey)
-
-
-                    ],
+                    children:_drawPageIndicators(),
                   ),
 
 
@@ -151,5 +144,12 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
 
     ) ;
   }
+  List<Widget> _drawPageIndicators(){
+   List<Widget> _widgets = List<Widget>();
+   for(var i in pages ){
+     _widgets.add(_drawCircle(Colors.red));
+   }
+  return _widgets;
+}
 
 }
