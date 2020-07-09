@@ -7,27 +7,24 @@ class OnBoarding extends StatefulWidget {
   _OnBoardingState createState() => _OnBoardingState();
 }
 
-class _OnBoardingState extends State<OnBoarding> {
-  List<String> images = [
-         'assets/images/bg3.jpeg',
-         'assets/images/bg2.jpeg',
-         'assets/images/home.jpeg',
-         'assets/images/bg4.jpeg',
-  ];
-  List<IconData> icons = [
-    Icons.ac_unit,
-    Icons.next_week,
-    Icons.access_time,
-    Icons.brightness_4
-  ];
+class _OnBoardingState extends State<OnBoarding>{
+List<PageModel> pages = List<PageModel>();  // list of PageModel object
+ void_addPages(){ //  objects initialisation
+      pages.add(PageModel("Welcome !", "Hello dear in our simple app , enjoy with us", Icons.ac_unit, "assets/images/bg3.jpeg"));
+      pages.add(PageModel("Enjoy", "Enjoy with cup of tea",Icons.access_time,"assets/images/bg2.jpeg"));
+      pages.add(PageModel("World", "Everything in this world is behind you",  Icons.access_time, "assets/images/bg4.jpeg"));
+      pages.add(PageModel("keep", "Any news facing you in this screen",Icons.brightness_4,"assets/images/bg4.jpeg"));
+
+  }
 
   @override
   Widget build(BuildContext context) {
+   void_addPages();
     return Scaffold(
       body: Stack(
         children: <Widget>[
           PageView.builder(
-            itemCount: images.length,
+            itemCount: pages.length,
             itemBuilder: (context , index){
                    return Stack(
                      children: <Widget>[
@@ -37,7 +34,7 @@ class _OnBoardingState extends State<OnBoarding> {
                              decoration:BoxDecoration(
                                image: DecorationImage(
                                  image: ExactAssetImage(
-                                     images[index]),
+                                     pages[index].images),
                                  fit: BoxFit.cover,
 
                                ),
@@ -52,25 +49,30 @@ class _OnBoardingState extends State<OnBoarding> {
                              children: <Widget>[
                              Transform.translate(
                                child: Icon(
-                                 icons[index],
+                                 pages[index].icons,
                                  size: 100,
                                  color: Colors.white,
                                ),
                                offset: Offset(0,-100),
                              ),
-                             Text("Welcome !",
+                             Align(
 
-                                 style:TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 28,
-                                  fontWeight: FontWeight.bold
-                             ),
-                             textAlign: TextAlign.center,
+                               child: Text(pages[index].titles,
+
+                                   style:TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold
+                               ),
+                               textAlign: TextAlign.center,
+                               ),
+                               alignment: Alignment.center,
                              ),
                              Padding(
                                padding: const EdgeInsets.only(left: 48,right: 48,top:18),
-                               child: Text("Making friends is easy as waving your hand back and forth in easy step",
-                               style: TextStyle(
+                               child: Text(
+                                 pages[index].descriptions,
+                                 style: TextStyle(
                                    color: Colors.white,
                                    fontSize: 16
 
@@ -112,4 +114,19 @@ class _OnBoardingState extends State<OnBoarding> {
       ),
     );
   }
+}
+class PageModel{
+  String _titles;
+  String _descriptions;
+  IconData _icons;
+  String _images;
+  PageModel(this._titles, this._descriptions, this._icons, this._images);
+
+  String get images => _images;
+
+  IconData get icons => _icons;
+
+  String get descriptions => _descriptions;
+
+  String get titles => _titles;
 }
