@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'PageModel.dart';
 
 
 class OnBoarding extends StatefulWidget {
@@ -23,70 +24,72 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          PageView.builder(
-            itemCount: pages.length,
-            itemBuilder: (context , index){
-                   return Stack(
-                     children: <Widget>[
+          Scaffold(
+            body: PageView.builder(
+              itemCount: pages.length,
+              itemBuilder: (context , index){
+                     return Stack(
+                       children: <Widget>[
 
 
-                              Container(
-                             decoration:BoxDecoration(
-                               image: DecorationImage(
-                                 image: ExactAssetImage(
-                                     pages[index].images),
-                                 fit: BoxFit.cover,
+                                Container(
+                               decoration:BoxDecoration(
+                                 image: DecorationImage(
+                                   image: ExactAssetImage(
+                                       pages[index].images),
+                                   fit: BoxFit.cover,
+
+                                 ),
+                               ),
 
                                ),
-                             ),
+                               //opacity:5,
 
-                             ),
-                             //opacity:5,
-
-                           Column(
-                             crossAxisAlignment: CrossAxisAlignment.center,  // 
-                             mainAxisAlignment: MainAxisAlignment.center, // relation with content
-                             children: <Widget>[
-                             Transform.translate(
-                               child: Icon(
-                                 pages[index].icons,
-                                 size: 100,
-                                 color: Colors.white,
-                               ),
-                               offset: Offset(0,-100),
-                             ),
-                             Align(
-
-                               child: Text(pages[index].titles,
-
-                                   style:TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold
-                               ),
-                               textAlign: TextAlign.center,
-                               ),
-                               alignment: Alignment.center,
-                             ),
-                             Padding(
-                               padding: const EdgeInsets.only(left: 48,right: 48,top:18),
-                               child: Text(
-                                 pages[index].descriptions,
-                                 style: TextStyle(
+                             Column(
+                               crossAxisAlignment: CrossAxisAlignment.center,  //
+                               mainAxisAlignment: MainAxisAlignment.center, // relation with content
+                               children: <Widget>[
+                               Transform.translate(
+                                 child: Icon(
+                                   pages[index].icons,
+                                   size: 100,
                                    color: Colors.white,
-                                   fontSize: 16
-
+                                 ),
+                                 offset: Offset(0,-100),
                                ),
-                               textAlign: TextAlign.center,),
-                             ),
-                           ],
-                           )
-                     ],
-                     );
-            },
+                               Align(
 
-            
-            ),
+                                 child: Text(pages[index].titles,
+
+                                     style:TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold
+                                 ),
+                                 textAlign: TextAlign.center,
+                                 ),
+                                 alignment: Alignment.center,
+                               ),
+                               Padding(
+                                 padding: const EdgeInsets.only(left: 48,right: 48,top:18),
+                                 child: Text(
+                                   pages[index].descriptions,
+                                   style: TextStyle(
+                                     color: Colors.white,
+                                     fontSize: 16
+
+                                 ),
+                                 textAlign: TextAlign.center,),
+                               ),
+                             ],
+                             )
+                       ],
+                       );
+              },
+
+
+              ),
+          ),
            Align(
              alignment:Alignment.bottomCenter,
              child: Padding(
@@ -110,23 +113,9 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
                ),
              ),
            ),
+
         ],
       ),
     );
   }
-}
-class PageModel{
-  String _titles;
-  String _descriptions;
-  IconData _icons;
-  String _images;
-  PageModel(this._titles, this._descriptions, this._icons, this._images);
-
-  String get images => _images;
-
-  IconData get icons => _icons;
-
-  String get descriptions => _descriptions;
-
-  String get titles => _titles;
 }
