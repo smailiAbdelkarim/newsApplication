@@ -90,6 +90,21 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
 
               ),
           ),
+           Transform.translate(
+             offset: Offset(0,105),
+             child: Align(
+                 alignment: Alignment.center,
+                  child: Row(
+                    children: <Widget>[
+                      
+
+                    ],
+                  ),
+
+
+             ),
+           ),
+
            Align(
              alignment:Alignment.bottomCenter,
              child: Padding(
