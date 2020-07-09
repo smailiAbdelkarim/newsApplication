@@ -95,8 +95,13 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
              child: Align(
                  alignment: Alignment.center,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      
+                      _drawCircle(Colors.red),
+                      _drawCircle(Colors.grey),
+                      _drawCircle(Colors.grey),
+                      _drawCircle(Colors.grey)
+
 
                     ],
                   ),
@@ -133,4 +138,18 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
       ),
     );
   }
+
+  Widget _drawCircle(Color color){
+    return Container(
+
+       width:15,
+      margin: EdgeInsets.only(right: 8),
+      decoration: BoxDecoration(
+        shape:BoxShape.circle,
+        color:color,
+      ),
+
+    ) ;
+  }
+
 }
