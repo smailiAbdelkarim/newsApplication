@@ -8,6 +8,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "developer student club",
+        ),
+
+      ),
       body: Center(
         child: Container(
           child: Text("Smaili abdelkarim android programmer"
