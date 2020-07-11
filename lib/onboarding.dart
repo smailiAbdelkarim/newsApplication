@@ -10,7 +10,11 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding>{
 List<PageModel> pages;  // list of PageModel object
-int _current_index;
+
+ValueNotifier<int> pageViewNotifier = ValueNotifier(0);
+
+
+
  void_addPages(){ //  objects initialisation
       pages= List<PageModel>();
       pages.add(PageModel("Welcome !", "Hello dear in our simple app , enjoy with us", Icons.ac_unit, "assets/images/bg3.jpeg"));
@@ -139,6 +143,28 @@ int _current_index;
         ],
       ),
     );
+  }
+  Widget _displayPageIndicators(int length){
+
+    return PageViewIndicator(
+      pageIndexNotifier:,
+      length: length,
+      normalBuilder: (animationController, index) => Circle(
+        size: 8.0,
+        color: Colors.black87,
+      ),
+      highlightedBuilder: (animationController, index) => ScaleTransition(
+        scale: CurvedAnimation(
+          parent: animationController,
+          curve: Curves.ease,
+        ),
+        child: Circle(
+          size: 12.0,
+          color: Colors.black45,
+        ),
+      ),
+    );
+
   }
 }
 
