@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'PageModel.dart';
+import 'package:page_view_indicator/page_view_indicator.dart';
 
 
 class OnBoarding extends StatefulWidget {
@@ -11,7 +12,7 @@ class OnBoarding extends StatefulWidget {
 class _OnBoardingState extends State<OnBoarding>{
 List<PageModel> pages;  // list of PageModel object
 
-ValueNotifier<int> pageViewNotifier = ValueNotifier(0);
+ValueNotifier<int> _pageViewNotifier = ValueNotifier(0);
 
 
 
@@ -35,10 +36,7 @@ ValueNotifier<int> pageViewNotifier = ValueNotifier(0);
             body: PageView.builder(
               itemCount: pages.length,
               onPageChanged: ( index ){
-                  setState(() {
-                    _current_index = index;
-                  });
-
+               _pageViewNotifier.value = index;
               },
               itemBuilder: (context , index){
                      return Stack(
@@ -108,9 +106,9 @@ ValueNotifier<int> pageViewNotifier = ValueNotifier(0);
              offset: Offset(0,105),
              child: Align(
                  alignment: Alignment.center,
-                  child: Container(
+                  child: _displayPageIndicators(pages.length),
 
-                  ),
+
 
 
              ),
@@ -147,11 +145,11 @@ ValueNotifier<int> pageViewNotifier = ValueNotifier(0);
   Widget _displayPageIndicators(int length){
 
     return PageViewIndicator(
-      pageIndexNotifier:,
+      pageIndexNotifier:_pageViewNotifier,
       length: length,
       normalBuilder: (animationController, index) => Circle(
         size: 8.0,
-        color: Colors.black87,
+        color: Colors.grey,
       ),
       highlightedBuilder: (animationController, index) => ScaleTransition(
         scale: CurvedAnimation(
@@ -160,7 +158,7 @@ ValueNotifier<int> pageViewNotifier = ValueNotifier(0);
         ),
         child: Circle(
           size: 12.0,
-          color: Colors.black45,
+          color: Colors.red,
         ),
       ),
     );
