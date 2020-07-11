@@ -9,8 +9,10 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding>{
-List<PageModel> pages = List<PageModel>();  // list of PageModel object
+List<PageModel> pages;  // list of PageModel object
+int _current_index;
  void_addPages(){ //  objects initialisation
+      pages= List<PageModel>();
       pages.add(PageModel("Welcome !", "Hello dear in our simple app , enjoy with us", Icons.ac_unit, "assets/images/bg3.jpeg"));
       pages.add(PageModel("Enjoy", "Enjoy with cup of tea",Icons.access_time,"assets/images/bg2.jpeg"));
       pages.add(PageModel("World", "Everything in this world is behind you",  Icons.access_time, "assets/images/bg4.jpeg"));
@@ -20,6 +22,7 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
 
   @override
   Widget build(BuildContext context) {
+
    void_addPages();
     return Scaffold(
       body: Stack(
@@ -27,6 +30,12 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
           Scaffold(
             body: PageView.builder(
               itemCount: pages.length,
+              onPageChanged: ( index ){
+                  setState(() {
+                    _current_index = index;
+                  });
+
+              },
               itemBuilder: (context , index){
                      return Stack(
                        children: <Widget>[
@@ -89,14 +98,14 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
 
 
               ),
+
           ),
            Transform.translate(
              offset: Offset(0,105),
              child: Align(
                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:_drawPageIndicators(),
+                  child: Container(
+
                   ),
 
 
@@ -131,25 +140,5 @@ List<PageModel> pages = List<PageModel>();  // list of PageModel object
       ),
     );
   }
-
-  Widget _drawCircle(Color color){
-    return Container(
-
-       width:15,
-      margin: EdgeInsets.only(right: 8),
-      decoration: BoxDecoration(
-        shape:BoxShape.circle,
-        color:color,
-      ),
-
-    ) ;
-  }
-  List<Widget> _drawPageIndicators(){
-   List<Widget> _widgets = List<Widget>();
-   for(var i in pages ){
-     _widgets.add(_drawCircle(Colors.red));
-   }
-  return _widgets;
 }
 
-}
