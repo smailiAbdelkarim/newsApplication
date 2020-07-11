@@ -17,6 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
                  Icons.search,
           ),
             onPressed: (){},
+          ),
+          IconButton(icon:Icon(
+            Icons.more_vert,
+          ),
+            onPressed: (){},
           )
         ],
       ),
