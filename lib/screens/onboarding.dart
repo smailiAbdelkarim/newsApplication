@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'PageModel.dart';
+import 'package:newsApplication/screens/home_screen.dart';
+import '../PageModel.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 
 
@@ -122,7 +123,16 @@ ValueNotifier<int> _pageViewNotifier = ValueNotifier(0);
                  width: double.infinity,
                  height: 50,
                  child: RaisedButton(
-                   onPressed: (){},
+                   onPressed: (){
+                     Navigator.push(
+                         context,
+                           MaterialPageRoute(
+                             builder: (context){
+                               return HomeScreen();
+                             }
+                           ) );
+
+                   },
                    color: Colors.red,
                    child: Text(
                      "GET STARTED",
