@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:newsApplication/screens/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../PageModel.dart';
 import 'package:page_view_indicator/page_view_indicator.dart';
 
@@ -123,11 +124,13 @@ ValueNotifier<int> _pageViewNotifier = ValueNotifier(0);
                  width: double.infinity,
                  height: 50,
                  child: RaisedButton(
+                  
                    onPressed: (){
                      Navigator.push(
                          context,
                            MaterialPageRoute(
                              builder: (context){
+                               _updateSeen();
                                return HomeScreen();
                              }
                            ) );
@@ -172,6 +175,11 @@ ValueNotifier<int> _pageViewNotifier = ValueNotifier(0);
         ),
       ),
     );
+
+  }
+  void _updateSeen() async{
+   SharedPreferences prfs = await SharedPreferences.getInstance();
+     prfs.setBool('seen', true);
 
   }
 }
