@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import'package:newsApplication/screens/home_tabs/whatsnew.dart';
+import'package:newsApplication/screens/home_tabs/popular.dart';
+import'package:newsApplication/screens/home_tabs/favourites.dart';
 import 'package:newsApplication/shared_ui/navigation_drawer.dart';
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,12 +26,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
          tabs: <Widget>[
            Tab(
              text: "WHAT'S NEW",
+            // icon: Icon(Icons.ac_unit),
            ),
            Tab(
              text: "POPULAR"
+             //icon: Icon(Icons.accessible_forward),
            ),
            Tab(
              text: "FAVOURITES",
+             //icon: Icon(Icons.airplay),
            ),
 
          ],
@@ -56,13 +62,16 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           child: TabBarView(
             children: <Widget>[
             Container(
-              color: Colors.amber,
+              child: WhatsNew(),
+              //color: Colors.amber,
             ),
              Container(
-               color:Colors.yellowAccent
+               child: popular(),
+              // color:Colors.yellowAccent
              ),
              Container(
-               color:Colors.green
+                 child: favourites(),
+               //color:Colors.green
              )
             ]
             ,controller: _tabController,
