@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       drawer: NavigationDrawer(),
       appBar: AppBar(
        bottom: TabBar(
+         indicatorColor: Colors.white,
          controller: _tabController,
          tabs: <Widget>[
            Tab(
