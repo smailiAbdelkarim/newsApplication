@@ -53,11 +53,20 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
       body: Center(
         child: Container(
-          child: Text("Smaili abdelkarim android programmer"
-          ,style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 23
-            ),),
+          child: TabBarView(
+            children: <Widget>[
+            Container(
+              color: Colors.amber,
+            ),
+             Container(
+               color:Colors.yellowAccent
+             ),
+             Container(
+               color:Colors.green
+             )
+            ]
+            ,controller: _tabController,
+          )
 
         ),
       ),
