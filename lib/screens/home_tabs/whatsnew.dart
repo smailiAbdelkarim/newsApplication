@@ -99,8 +99,11 @@ class _WhatsNewState extends State<WhatsNew> {
                     child: _drawSectionTitle("Recent updates")
                   ),
 
-                  _drawRecentUpdateCard(),
-                  _drawRecentUpdateCard()
+                  _drawRecentUpdateCard(Colors.deepOrange),
+                  _drawRecentUpdateCard(Colors.green),
+                  SizedBox(
+                    height: 16,
+                  )
 
                 ],
               ),
@@ -150,8 +153,12 @@ class _WhatsNewState extends State<WhatsNew> {
                       children: <Widget>[
                         Text("Smaili abdelkarim"),
                         Row(
+
                           children: <Widget>[
                             Icon(Icons.access_time),
+                            SizedBox(
+                              width: 10,
+                            ),
                             Text("15 min")
                           ],
                         )
@@ -184,7 +191,7 @@ class _WhatsNewState extends State<WhatsNew> {
       ,style: TextStyle(color:Colors.grey.shade600,fontSize: 18,fontWeight: FontWeight.w700),);
   }
 
-  Widget _drawRecentUpdateCard() {
+  Widget _drawRecentUpdateCard(Color color) {
     return Card(
       child: Column(
        // mainAxisAlignment: MainAxisAlignment.start,
@@ -201,14 +208,29 @@ class _WhatsNewState extends State<WhatsNew> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.only(left:16,top: 16),
             child: Container(
               padding: EdgeInsets.only(left:24,right:24,bottom: 1,top:1),
               decoration: BoxDecoration(
-                color: Colors.redAccent,
+                color: color,
                 borderRadius: BorderRadius.circular(3),
               ),
               child: Text("Sport",style: TextStyle(color:Colors.white),),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16,right: 16,top:8,bottom: 8),
+            child: Text("This is so hard aah",style: TextStyle(
+              fontSize: 18,fontWeight: FontWeight.w500
+            ),),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 16,right: 16,top:8,bottom: 8),
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.access_time,color: Colors.grey,),
+                Text("15 min",style: TextStyle(color:Colors.grey),)
+              ],
             ),
           )
 
