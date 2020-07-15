@@ -71,11 +71,17 @@ class _WhatsNewState extends State<WhatsNew> {
                  child:Card(
                    child: Column(
                      children: <Widget>[
+                       _drawDevider(),
                        _drawSingleRow(),
+                       _drawDevider(),
                        _drawSingleRow(),
+                       _drawDevider(),
                        _drawSingleRow(),
+                       _drawDevider(),
                        _drawSingleRow(),
+                       _drawDevider(),
                        _drawSingleRow(),
+                       _drawDevider(),
                        _drawSingleRow(),
                      ],
                    ),
@@ -148,6 +154,13 @@ class _WhatsNewState extends State<WhatsNew> {
         ),
 
       ],
+    );
+  }
+  Widget _drawDevider(){
+    return Container(
+      height: 1,
+      width: double.infinity,
+      color: Colors.grey.shade50,
     );
   }
 }
