@@ -18,7 +18,7 @@ static TextStyle titleStyle = TextStyle(
 );
 
   static TextStyle descriptionStyle = TextStyle(
-    fontWeight: FontWeight.bold,
+    //fontWeight: FontWeight.bold,
     fontSize: 19,
     color: Colors.white,
 

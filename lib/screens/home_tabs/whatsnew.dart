@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:newsApplication/utilities/app_theme.dart';
 class WhatsNew extends StatefulWidget {
   @override
@@ -33,8 +34,13 @@ class _WhatsNewState extends State<WhatsNew> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('smaili abdelkarim',style:AppTheme.titleStyle),
-            Text("Computer Sience student and DSC Lead",style: AppTheme.descriptionStyle,)
+            Padding(
+                padding: EdgeInsets.only(left:48,right: 48),
+                child: Text('smaili abdelkarim',style:AppTheme.titleStyle,textAlign: TextAlign.center,)),
+            SizedBox(height: 14,),
+            Padding(
+              padding: EdgeInsets.only(left:29,right: 29),
+                child: Text("Computer Sience student , 1 Master networking and telecommunication and DSC Lead",style: AppTheme.descriptionStyle,textAlign: TextAlign.center))
           ],
 
         ),
