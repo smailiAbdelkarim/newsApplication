@@ -11,9 +11,10 @@ class _WhatsNewState extends State<WhatsNew> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               _drawHeader(),
-
+              _drawTopStories(),
 
             ],
 
@@ -53,6 +54,100 @@ class _WhatsNewState extends State<WhatsNew> {
           )
 
       ),
+    );
+  }
+  Widget _drawTopStories(){
+      return Container(
+        //color: Colors.grey,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left:16,top:16),
+                child: Text("Top Stories",
+                  textAlign:TextAlign.left
+                    ,style: TextStyle(color:Colors.grey.shade600,fontSize: 18,fontWeight: FontWeight.w700),)),
+               Padding(
+                 padding: EdgeInsets.all((8)),
+                 child:Card(
+                   child: Column(
+                     children: <Widget>[
+                       _drawSingleRow(),
+                       _drawSingleRow(),
+                       _drawSingleRow(),
+                       _drawSingleRow(),
+                       _drawSingleRow(),
+                       _drawSingleRow(),
+                     ],
+                   ),
+                 ),
+
+               ),
+
+
+          ],
+
+        ),
+
+      );
+
+
+  }
+  Widget _drawSingleRow(){
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(2),
+          child: Row(
+            children: <Widget>[
+              SizedBox(
+                width: 125,
+                height: 125,
+                child:Image(
+                  image: ExactAssetImage('assets/images/nowel.jpeg'),
+                ),
+              ),
+              Expanded(
+
+                child: Padding(
+                  padding: EdgeInsets.only(left:8),
+                  child: Column(
+                    children: <Widget>[
+                      Transform.translate(
+                        offset: Offset(0,-12),
+                        child: Text("The Global world Warning Annual summit",
+                          maxLines: 2,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color:Colors.black,
+                              fontSize: 18
+                          ),),
+                      ),
+                      Transform.translate(
+                        offset: Offset(0,10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Smaili abdelkarim"),
+                            Row(
+                              children: <Widget>[
+                                Icon(Icons.access_time),
+                                Text("15 min")
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+
+
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+
+      ],
     );
   }
 }
