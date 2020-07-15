@@ -10,8 +10,18 @@ class AppTheme{
 
 
   ) ;
+static TextStyle titleStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 25,
+  color: Colors.white,
 
+);
 
+  static TextStyle descriptionStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 19,
+    color: Colors.white,
 
+  );
 
 }
