@@ -183,7 +183,7 @@ class _WhatsNewState extends State<WhatsNew> {
     );
   }
 
-  _drawSectionTitle(String title) {
+  Widget _drawSectionTitle(String title) {
     return  Text(
 
       title,
