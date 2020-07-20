@@ -90,6 +90,46 @@ class _favouritesState extends State<favourites> {
 
   }
   Widget _newsRow(){
-  return Container();
+      return Padding(
+        padding: EdgeInsets.only(top: 8),
+        child: Row(
+
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(right: 15),
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                 image: DecorationImage(
+                   image: ExactAssetImage('assets/images/london.jpeg'),
+                   fit: BoxFit.cover
+
+                 )
+               ),
+            ),
+            Expanded(
+              child: Transform.translate(
+                offset: Offset(0,8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("Welcome to my first Flutter App Mates",
+                    style: TextStyle(fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    ),),
+                    Transform.translate(
+                      offset: Offset(0,3),
+                      child: Text("His exquisite since breakfast add. So we me unknown as improve hastily sitting forming. Especially favourable compliment but thoroughly unreserved saw she themselves",
+                           style: TextStyle(color: Colors.grey,
+                           fontSize: 14,
+                           height: 1.25),),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      );
   }
 }
